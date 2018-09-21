@@ -9,13 +9,17 @@ import { IconBarComponent } from './icon-bar/icon-bar.component';
 import { ScreenService } from './services/screen.service';
 import { ScreenSmallDirective } from './directives/screen-small.directive';
 import { ScreenLargeDirective } from './directives/screen-large.directive';
-
+import { MenuService } from './services/menu.service';
+import {MenuComponent} from './menus/menu/menu.component';
+import { MenuItemComponent } from './menus/menu-item/menu-item.component';
+import {RouterModule} from '@angular/router';
 @NgModule({
-    imports: [CommonModule],
+    imports: [CommonModule, RouterModule],
     declarations: [SpaBodyComponent, SpaHeaderComponent, SpaContentComponent, SpaFooterComponent,
-    IconBarComponent, ScreenSmallDirective, ScreenLargeDirective
+    IconBarComponent, ScreenSmallDirective, ScreenLargeDirective,
+    MenuComponent, MenuItemComponent
  ],
     exports: [SpaBodyComponent],
-    providers: [SpaConfigService, ScreenService]
+    providers: [SpaConfigService, ScreenService, MenuService]
 })
 export class SpaModule {}
