@@ -36,7 +36,7 @@
     border: 2px solid #bcbcbc;
     border-radius: 20%;
     opacity: 0.5;
-    margin: 0 10px;
+    margin: 0 0 0 10px;
     cursor: pointer;
 }
 
@@ -46,6 +46,10 @@
     display: flex;
 }
 
+.small-icon-holder a img {
+    height: 30px;
+}
+
 .small-image {
-    height: 100px;
+    height: 90px;
 }
