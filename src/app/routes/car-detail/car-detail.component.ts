@@ -3,10 +3,12 @@ import { FieldInput } from '../../../spa/dynamicForms/field-interface';
 import { Car } from '../../services/car-interface';
 import { AppDataService } from '../../services/app-data.service';
 import {ActivatedRoute, Router} from '@angular/router';
+import { visibility } from '../../../spa/services/animations';
 @Component({
   selector: 'app-car-detail',
   templateUrl: './car-detail.component.html',
-  styleUrls: ['./car-detail.component.css']
+  styleUrls: ['./car-detail.component.css'],
+  animations: [visibility]
 })
 export class CarDetailComponent implements OnInit {
   car: Car;
@@ -48,10 +50,10 @@ export class CarDetailComponent implements OnInit {
 
   ngOnInit() {
     this.operation = this.route.snapshot.params['operation'];
-    if( this.operation === 'create') {
+    if (this.operation === 'create') {
       this.car = { id: 0, name: '', model: '', price: null};
     } else {
-      this.appDataService.getCar(+this.route.snapshot.params['id']).subscribe((car: Car) => this.car = car);
+      this.appDataService.getCar(+this.route.snapshot.params['id']).subscribe((car: Car) => this.car = car[0]);
     }
   }
   createCar(car: Car) {

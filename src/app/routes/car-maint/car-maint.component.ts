@@ -33,7 +33,9 @@ deleteCarQuestion(id: number) {
 }
 deleteCar (id: number) {
   this.isDeleting = true;
-  this.appDataService.deleteCar(id).subscribe(c => this.cancelDelete(),
+  this.appDataService.deleteCar(id).subscribe(c => {this.cancelDelete();
+    this.CarList = this.CarList.filter(carItem => carItem.id !== id);
+  },
 error => {
   this.deleteError = error;
   this.isDeleting = false;

@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import {HttpModule} from '@angular/http';
 import { AppComponent } from './app.component';
 import { SpaModule } from '../spa/spa.module';
 import { AppHomeComponent } from './routes/app-home/app-home.component';
@@ -16,6 +16,8 @@ import { UserApi } from '../spa/users/user-api';
 import { AuthGuard } from './services/auth-guard.service';
 import { AppDataService } from './services/app-data.service';
 import { FormsModule } from '@angular/forms';
+import { CarPanelComponent } from './panels/car-panel/car-panel.component';
+import { ImagePanelComponent } from './panels/image-panel/image-panel.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,10 +26,12 @@ import { FormsModule } from '@angular/forms';
     CarDetailComponent,
     CarListComponent,
     CarMaintComponent,
-    AuthenticatedComponent
+    AuthenticatedComponent,
+    CarPanelComponent,
+    ImagePanelComponent
   ],
   imports: [
-    BrowserModule, SpaModule, RouterModule.forRoot(appRoutes), FormsModule
+    BrowserModule, SpaModule, RouterModule.forRoot(appRoutes), FormsModule, HttpModule
   ],
   providers: [UserService,
      {
